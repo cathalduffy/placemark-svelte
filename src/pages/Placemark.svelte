@@ -1,6 +1,6 @@
 <script>
   import navigation from "/src/assets/map.png";
-  import DonateForm from "../components/DonateForm.svelte";
+  import PlacemarkForm from "../components/PlacemarkForm.svelte";
   import TitleBar from "../components/TitleBar.svelte";
   import MainNavigator from "../components/MainNavigator.svelte";
 </script>
@@ -20,6 +20,6 @@
   </div>
   <div class="column box has-text-centered">
     <h1 class="title is-4">Give Generously!</h1>
-    <DonateForm/>
+    <PlacemarkForm/>
   </div>
 </div>

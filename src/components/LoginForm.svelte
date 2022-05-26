@@ -12,7 +12,7 @@
   async function login() {
     let success = await placemarkService.login(email, password)
     if (success) {
-      push("/donate");
+      push("/placemark");
     } else {
       email = "";
       password = "";

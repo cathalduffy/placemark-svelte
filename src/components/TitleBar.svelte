@@ -14,7 +14,7 @@
     <div class="subtitle is-5"> {subTitle} </div>
   </div>
   <div class="column">
-    <i class="fas fa-donate fa-3x" style="color:rgb(95, 96, 173)" title="Source repo" pos="bottom" uk-tooltip></i>
+    <i class="fas fa-placemark fa-3x" style="color:rgb(95, 96, 173)" title="Source repo" pos="bottom" uk-tooltip></i>
     {#if $user.email}
       <div class="is-size-7">{$user.email} </div>
     {:else}

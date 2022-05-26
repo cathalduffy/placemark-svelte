@@ -49,4 +49,31 @@ export class PlacemarkService {
       return false;
     }
   }
+
+  async addPlacemark(placemark) {
+    try {
+      const response = await axios.post(this.baseUrl + "/api/categories/" + placemark.category + "/placemarks", placemark);
+      return response.status == 200;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  async getCategories() {
+    try {
+      const response = await axios.get(this.baseUrl + "/api/categories");
+      return response.data
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async getPlacemarks() {
+    try {
+      const response = await axios.get(this.baseUrl + "/api/placemarks");
+      return response.data;
+    } catch (error) {
+      return [];
+    }
+  }
 }

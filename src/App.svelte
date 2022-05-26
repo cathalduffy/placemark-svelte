@@ -3,7 +3,7 @@
   import Login from "./pages/Login.svelte"
   import Signup from "./pages/Signup.svelte"
   import Report from "./pages/Report.svelte";
-  import Donate from "./pages/Donate.svelte";
+  import Placemark from "./pages/Placemark.svelte";
   import Router from "svelte-spa-router";
   import {PlacemarkService} from "./services/placemark-service";
   import {setContext} from "svelte"; //context object to be retrieved from any component in our application
@@ -14,7 +14,7 @@
     "/": Main,
     "/login": Login,
     "/signup": Signup,
-    "/donate": Donate,
+    "/placemark": Placemark,
     "/report": Report,
     "/logout": Main
   } 
