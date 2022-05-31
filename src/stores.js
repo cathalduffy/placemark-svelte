@@ -10,3 +10,10 @@ export const category = writable({
   title: "",
   parsedURL: "",
 });
+
+export const placemark = writable({
+  id: "",
+  name: "",
+  latitude: "",
+  longitude: "",
+});

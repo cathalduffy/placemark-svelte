@@ -4,11 +4,15 @@
   import TitleBar from "../components/TitleBar.svelte";
   import MainNavigator from "../components/MainNavigator.svelte";
   import {getContext, onMount} from 'svelte'
+  import {placemark} from "../stores";
+
 
   const placemarkService = getContext("PlacemarkService");
-  let placemarkList = [];
+  let placemarkById = [];
 
   let url = ``;
+  let name = $placemark.name;
+
 
   onMount(async (request) => {
     url = window.location.href
@@ -26,6 +30,11 @@
     <MainNavigator/>
   </div>
 </div>
+
+<p>{$placemark.id}</p>
+<p>{$placemark.name}</p>
+<p>{$placemark.latitude}</p>
+<p>{$placemark.longitude}</p>
 
 
 

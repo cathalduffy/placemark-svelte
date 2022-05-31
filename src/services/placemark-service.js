@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { identity } from "svelte/internal";
-import { user, category } from "../stores";
+import { user, category, placemark } from "../stores";
 
 export class PlacemarkService {
   baseUrl = "";
@@ -93,6 +93,12 @@ export class PlacemarkService {
   async getPlacemarkById(parsedURL) {
     try {
     const response = await axios.get(this.baseUrl + "/api/placemarks/" + parsedURL);
+    placemark.set({
+      id: response.data._id,
+      name: response.data.name,
+      latitude: response.data.latitude,
+      longitude: response.data.longitude,
+    });
     return response.data;
     } catch (error) {
       return [];
