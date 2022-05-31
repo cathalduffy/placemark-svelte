@@ -1,11 +1,19 @@
 <script>
   import {getContext, onMount} from 'svelte'
+  import {category} from "../stores";
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkList = [];
 
-  onMount(async () => {
-    placemarkList = await placemarkService.getPlacemarks();
+  let url = ``;
+
+  onMount(async (request) => {
+    url = window.location.href
+    console.log(url)
+    let parsedURL = url.substring(33)
+    //console.log(parsedURL);
+    placemarkList = await placemarkService.getPlacemarks(parsedURL);
+    console.log(placemarkList)
   });
 </script>
 
@@ -29,9 +37,11 @@
           {placemarks.longitude}
         </td>
         <td>
-
+          {placemarks.categoryid}
         </td>
       </tr>
     {/each}
   </tbody>
 </table>
+
+
