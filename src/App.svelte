@@ -18,7 +18,7 @@
     "/": Main,
     "/login": Login,
     "/signup": Signup,
-    "/placemark": Placemark,
+    "/placemark/*": Placemark,
     "/report": Report,
     "/dashboard": Dashboard,
     "/category": Category,

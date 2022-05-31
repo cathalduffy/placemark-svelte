@@ -3,6 +3,19 @@
   import PlacemarkList from "../components/PlacemarkList.svelte";
   import TitleBar from "../components/TitleBar.svelte";
   import MainNavigator from "../components/MainNavigator.svelte";
+  import {getContext, onMount} from 'svelte'
+
+  const placemarkService = getContext("PlacemarkService");
+  let placemarkList = [];
+
+  let url = ``;
+
+  onMount(async (request) => {
+    url = window.location.href
+    console.log(url)
+    let parsedURL = url.substring(34)
+    placemarkById = await placemarkService.getPlacemarkById(parsedURL);
+  });
 </script>
 
 <div class="columns is-vcentered">
@@ -14,12 +27,14 @@
   </div>
 </div>
 
-<div class="columns">
-  <div class="column has-text-centered">
-    <img alt="Homer" src={navigation} width="300"/>
-  </div>
-  <div class="column box has-text-centered">
-    <h1 class="title is-4">Placemarks to date</h1>
-    <PlacemarkList/>
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+

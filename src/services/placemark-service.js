@@ -90,5 +90,13 @@ export class PlacemarkService {
     }
   }
 
+  async getPlacemarkById(parsedURL) {
+    try {
+    const response = await axios.get(this.baseUrl + "/api/placemarks/" + parsedURL);
+    return response.data;
+    } catch (error) {
+      return [];
+    }
+  }
 
 }

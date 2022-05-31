@@ -38,6 +38,13 @@
         <td>
           {placemarks.categoryid}
         </td>
+        <td>
+         <a href="/#/placemark/{placemarks._id}" class="button">
+          <span class="icon is-small">
+           <i class="fas fa-folder-open"></i>
+          </span>
+    </a>
+        </td>
       </tr>
     {/each}
   </tbody>
