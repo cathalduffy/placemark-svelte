@@ -11,7 +11,6 @@
     url = window.location.href
     console.log(url)
     let parsedURL = url.substring(33)
-    //console.log(parsedURL);
     placemarkList = await placemarkService.getPlacemarks(parsedURL);
     console.log(placemarkList)
   });

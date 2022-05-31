@@ -62,8 +62,7 @@ export class PlacemarkService {
 
   async getPlacemarks(parsedURL) {
     try {
-    const response = await axios.get(this.baseUrl + "/api/category/" + parsedURL, {
-      params: { email: parsedURL }});
+    const response = await axios.get(this.baseUrl + "/api/categories/" + parsedURL + "/placemarks");
     return response.data;
     } catch (error) {
       return [];
