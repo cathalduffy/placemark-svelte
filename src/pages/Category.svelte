@@ -18,5 +18,8 @@
   <div class="column has-text-centered">
     <img alt="Homer" src={navigation} width="300"/>
   </div>
-
+  <div class="column box has-text-centered">
+    <h1 class="title is-4">Placemarks to date</h1>
+    <PlacemarkList/>
+  </div>
 </div>

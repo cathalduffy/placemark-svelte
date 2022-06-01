@@ -1,7 +1,8 @@
 //encapsulate access to the API. New PlacemarkService class
 
 import axios from "axios";
-import { user } from "../stores";
+import { identity } from "svelte/internal";
+import { user, category, placemark } from "../stores";
 
 export class PlacemarkService {
   baseUrl = "";
@@ -59,6 +60,27 @@ export class PlacemarkService {
     }
   }
 
+  async getPlacemarks(parsedURL) {
+    try {
+    const response = await axios.get(this.baseUrl + "/api/categories/" + parsedURL + "/placemarks");
+    return response.data;
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async createCategory(title) {
+    try {
+      const categoryDetails = {
+        title: title,
+      };
+      await axios.post(this.baseUrl + "/api/categories", categoryDetails);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
   async getCategories() {
     try {
       const response = await axios.get(this.baseUrl + "/api/categories");
@@ -68,12 +90,19 @@ export class PlacemarkService {
     }
   }
 
-  async getPlacemarks() {
+  async getPlacemarkById(parsedURL) {
     try {
-      const response = await axios.get(this.baseUrl + "/api/placemarks");
-      return response.data;
+    const response = await axios.get(this.baseUrl + "/api/placemarks/" + parsedURL);
+    placemark.set({
+      id: response.data._id,
+      name: response.data.name,
+      latitude: response.data.latitude,
+      longitude: response.data.longitude,
+    });
+    return response.data;
     } catch (error) {
       return [];
     }
   }
+
 }
