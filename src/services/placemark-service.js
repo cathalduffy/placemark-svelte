@@ -5,9 +5,10 @@ import { identity } from "svelte/internal";
 import { user, category, placemark } from "../stores";
 
 export class PlacemarkService {
-  baseUrl = "";
+
   categoryList = [];
   placemarkList = [];
+  baseUrl = "";
 
     constructor(baseUrl) {
     this.baseUrl = baseUrl;
@@ -68,10 +69,10 @@ export class PlacemarkService {
     try {
       const response = await axios.post(this.baseUrl + "/api/categories/" + placemark.category + "/placemarks", placemark);
       return response.status == 200;
-    } catch (error) {
-      return false;
+      } catch (error) {
+        return [];
+      }
     }
-  }
 
   async getPlacemarks(parsedURL) {
     try {
