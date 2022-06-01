@@ -5,7 +5,6 @@
   import MainNavigator from "../components/MainNavigator.svelte";
   import {getContext, onMount} from 'svelte'
   import {placemark} from "../stores";
-  import PlacemarkMap from "../components/PlacemarkMap.svelte";
   import 'leaflet/dist/leaflet.css';
   import {LeafletMap} from '../services/leaflet-map';
 
@@ -54,7 +53,7 @@
 <p>{$placemark.latitude}</p>
 <p>{$placemark.longitude}</p>
 
-<div class="box" id="placemark-map" style="height:800px">
+<div class="box" id="placemark-map" style="height:500px">
 </div>
 
 
