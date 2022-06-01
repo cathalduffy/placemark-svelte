@@ -5,9 +5,20 @@ import { user } from "../stores";
 
 export class CategoryService {
   baseUrl = "";
+  categoryList = [];
+  placemarkList = [];
 
-  constructor(baseUrl) {
+    constructor(baseUrl) {
     this.baseUrl = baseUrl;
+    const placemarkCredentials = localStorage.placemark;
+    if (placemarkCredentials) {
+      const savedUser = JSON.parse(placemarkCredentials);
+      user.set({
+        email: savedUser.email,
+        token: savedUser.token,
+      });
+      axios.defaults.headers.common["Authorization"] = "Bearer " + savedUser.token;
+    }
   }
 
   async createCategory(title) {

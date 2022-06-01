@@ -6,27 +6,13 @@
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkList = [];
-    
-    const mapConfig = {
-    location: {lat: 52.160858, lng: -7.152420},
-    zoom: 7,
-    minZoom: 1,
-  };
 
   let url = ``;
 
   onMount(async (request) => {
-    const map = new LeafletMap("placemark-map", mapConfig);
-    map.showZoomControl();
-    map.showLayerControl();
-
     url = window.location.href
     let parsedURL = url.substring(33)
     placemarkList = await placemarkService.getPlacemarks(parsedURL);
-      placemarkList.forEach(placemark => {
-      map.addMarker({lat: placemark.latitude, lng: placemark.longitude});
-    });
-
   });
 </script>
 
@@ -57,14 +43,13 @@
           <span class="icon is-small">
            <i class="fas fa-folder-open"></i>
           </span>
-    </a>
+         </a>
         </td>
       </tr>
     {/each}
   </tbody>
 </table>
 
-<div class="box" id="placemark-map" style="height:500px">
-</div>
+
 
 
