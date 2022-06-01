@@ -6,9 +6,20 @@ import { user, category, placemark } from "../stores";
 
 export class PlacemarkService {
   baseUrl = "";
+  categoryList = [];
+  placemarkList = [];
 
-  constructor(baseUrl) {
+    constructor(baseUrl) {
     this.baseUrl = baseUrl;
+    const placemarkCredentials = localStorage.placemark;
+    if (placemarkCredentials) {
+      const savedUser = JSON.parse(placemarkCredentials);
+      user.set({
+        email: savedUser.email,
+        token: savedUser.token,
+      });
+      axios.defaults.headers.common["Authorization"] = "Bearer " + savedUser.token;
+    }
   }
 
   async login(email, password) {
@@ -20,6 +31,7 @@ export class PlacemarkService {
           email: email,
           token: response.data.token,
         });
+        localStorage.placemark = JSON.stringify({email: email, token: response.data.token});
         return true;
       }
       return false;
@@ -34,6 +46,7 @@ export class PlacemarkService {
       token: "",
     });
     axios.defaults.headers.common["Authorization"] = "";
+    localStorage.removeItem("placemark");
   }
 
   async signup(firstName, lastName, email, password) {

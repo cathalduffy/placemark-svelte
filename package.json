@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "hapi-auth-jwt2": "^10.2.0",
+    "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.8.0",
     "svelte-spa-router": "^3.2.0"
   }
