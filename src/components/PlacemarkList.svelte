@@ -1,18 +1,32 @@
 <script>
   import {getContext, onMount} from 'svelte'
   import {category} from "../stores";
+  import 'leaflet/dist/leaflet.css';
+  import {LeafletMap} from '../services/leaflet-map';
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkList = [];
+    
+    const mapConfig = {
+    location: {lat: 52.160858, lng: -7.152420},
+    zoom: 7,
+    minZoom: 1,
+  };
 
   let url = ``;
 
   onMount(async (request) => {
+    const map = new LeafletMap("placemark-map", mapConfig);
+    map.showZoomControl();
+    map.showLayerControl();
+
     url = window.location.href
-    console.log(url)
     let parsedURL = url.substring(33)
     placemarkList = await placemarkService.getPlacemarks(parsedURL);
-    console.log(placemarkList)
+      placemarkList.forEach(placemark => {
+      map.addMarker({lat: placemark.latitude, lng: placemark.longitude});
+    });
+
   });
 </script>
 
@@ -49,5 +63,8 @@
     {/each}
   </tbody>
 </table>
+
+<div class="box" id="placemark-map" style="height:500px">
+</div>
 
 

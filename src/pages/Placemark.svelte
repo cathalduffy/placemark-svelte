@@ -13,8 +13,8 @@
   let placemarkById = [];
 
     const mapConfig = {
-    location: {lat: $placemark.latitude, lng: $placemark.longitude},
-    zoom: 10,
+    location: {lat: 52.160858, lng: -7.152420},
+    zoom: 7,
     minZoom: 1,
   };
   let map = null;
