@@ -5,6 +5,7 @@
   import Report from "./pages/Report.svelte";
   import Placemark from "./pages/Placemark.svelte";
   import Dashboard from "./pages/Dashboard.svelte";
+  import Map from "./pages/Map.svelte";
   import Router from "svelte-spa-router";
   import Category from "./pages/Category.svelte"
   import {PlacemarkService} from "./services/placemark-service";
@@ -21,6 +22,7 @@
     "/placemark/*": Placemark,
     "/report": Report,
     "/dashboard": Dashboard,
+    "/map": Map,
     "/category": Category,
     "/category/*": Category,
     "/logout": Main,

@@ -5,20 +5,38 @@
   import MainNavigator from "../components/MainNavigator.svelte";
   import {getContext, onMount} from 'svelte'
   import {placemark} from "../stores";
+  import PlacemarkMap from "../components/PlacemarkMap.svelte";
+  import 'leaflet/dist/leaflet.css';
+  import {LeafletMap} from '../services/leaflet-map';
 
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkById = [];
+
+    const mapConfig = {
+    location: {lat: $placemark.latitude, lng: $placemark.longitude},
+    zoom: 10,
+    minZoom: 1,
+  };
+  let map = null;
 
   let url = ``;
   let name = $placemark.name;
 
 
   onMount(async (request) => {
+    map = new LeafletMap("placemark-map", mapConfig);
+    map.showZoomControl();
+    map.showLayerControl();
+
     url = window.location.href
     console.log(url)
     let parsedURL = url.substring(34)
     placemarkById = await placemarkService.getPlacemarkById(parsedURL);
+    
+
+    map.addMarker({lat: $placemark.latitude, lng: $placemark.longitude});
+
   });
 </script>
 
@@ -35,6 +53,9 @@
 <p>{$placemark.name}</p>
 <p>{$placemark.latitude}</p>
 <p>{$placemark.longitude}</p>
+
+<div class="box" id="placemark-map" style="height:800px">
+</div>
 
 
 
