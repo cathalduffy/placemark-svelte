@@ -21,7 +21,9 @@
     <th>Title</th>
     <th>Latitude</th>
     <th>Longitude</th>
-    <th></th>
+    <th>Amenities</th>
+    <th>Food</th>
+    <th>Cleanliness</th>
   </thead>
   <tbody>
     {#each placemarkList as placemarks}
@@ -36,7 +38,13 @@
           {placemarks.longitude}
         </td>
         <td>
-          {placemarks.categoryid}
+          {placemarks.amenitiesRating}
+        </td>
+        <td>
+          {placemarks.foodRating}
+        </td>
+        <td>
+          {placemarks.cleanlinessRating}
         </td>
         <td>
          <a href="/#/placemark/{placemarks._id}" class="button">
