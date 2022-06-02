@@ -1,8 +1,7 @@
 //encapsulate access to the API. New PlacemarkService class
 
 import axios from "axios";
-import { identity } from "svelte/internal";
-import { user, category, placemark } from "../stores";
+import { user, placemark } from "../stores";
 
 export class PlacemarkService {
 
