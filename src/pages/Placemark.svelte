@@ -36,6 +36,9 @@
 <p>{$placemark.name}</p>
 <p>{$placemark.latitude}</p>
 <p>{$placemark.longitude}</p>
+<p>{$placemark.amenitiesRating}</p>
+<p>{$placemark.foodRating}</p>
+<p>{$placemark.cleanlinessRating}</p>
 
 <PlacemarkMap/>
 

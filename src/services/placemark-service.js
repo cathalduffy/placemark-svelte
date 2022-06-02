@@ -112,6 +112,9 @@ export class PlacemarkService {
       name: response.data.name,
       latitude: response.data.latitude,
       longitude: response.data.longitude,
+      amenitiesRating: response.data.amenitiesRating,
+      foodRating: response.data.amenitiesRating,
+      cleanlinessRating: response.data.cleanlinessRating,
     });
     return response.data;
     } catch (error) {

@@ -7,9 +7,9 @@
     let name = "";
     let latitude = 52.160858;
     let longitude = -7.152420;
-    let cleanlinessRating = 0;
-    let amenitiesRating = 0;
-    let foodRating = 0;
+    let cleanlinessRating = "";
+    let amenitiesRating = "";
+    let foodRating = "";
     let errorMessage = "";
     let message = "Enter All fields to add a spot";
 
@@ -55,9 +55,9 @@
   <div class="field">
     <label class="label" for="name">Enter Placemark Name</label> 
     <input bind:value={name} class="input" id="name" name="name" placeholder="Placemark Name" type="text">
-    <input bind:value={amenitiesRating} class="input" id="amenitiesRating" name="amenitiesRating" placeholder="amenitiesRating" type="number">
-    <input bind:value={foodRating} class="input" id="foodRating" name="foodRating" placeholder="foodRating" type="number">
-    <input bind:value={cleanlinessRating} class="input" id="cleanlinessRating" name="cleanlinessRating" placeholder="cleanlinessRating" type="number">
+    <input bind:value={amenitiesRating} class="input" id="amenitiesRating" name="amenitiesRating" placeholder="Please Rate the Amenities" type="number">
+    <input bind:value={foodRating} class="input" id="foodRating" name="foodRating" placeholder="Please Rate the Dining Facilities" type="number">
+    <input bind:value={cleanlinessRating} class="input" id="cleanlinessRating" name="cleanlinessRating" placeholder="Please Rate the Cleanliness" type="number">
   </div>
    <div>
    <Coordinates bind:lat={latitude} bind:lng={longitude}/>

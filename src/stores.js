@@ -16,4 +16,7 @@ export const placemark = writable({
   name: "",
   latitude: "",
   longitude: "",
+  amenitiesRating: "",
+  foodRating: "",
+  cleanlinessRating: "",
 });
