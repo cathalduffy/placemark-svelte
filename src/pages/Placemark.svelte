@@ -8,6 +8,8 @@
   import 'leaflet/dist/leaflet.css';
   import {LeafletMap} from '../services/leaflet-map';
   import PlacemarkMap from "../components/PlacemarkMap.svelte";
+  import PlacemarkChart from "../components/PlacemarkChart.svelte";
+
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkById = [];
@@ -41,6 +43,8 @@
 <p>{$placemark.cleanlinessRating}</p>
 
 <PlacemarkMap/>
+<PlacemarkChart/>
+
 
 
 

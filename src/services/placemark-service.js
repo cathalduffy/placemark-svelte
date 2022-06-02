@@ -112,7 +112,7 @@ export class PlacemarkService {
       latitude: response.data.latitude,
       longitude: response.data.longitude,
       amenitiesRating: response.data.amenitiesRating,
-      foodRating: response.data.amenitiesRating,
+      foodRating: response.data.foodRating,
       cleanlinessRating: response.data.cleanlinessRating,
     });
     return response.data;
