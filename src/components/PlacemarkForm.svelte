@@ -13,21 +13,26 @@
   const placemarkService = getContext("PlacemarkService");
   const categoryService = getContext("CategoryService");
 
+  let url = ``;
+
 
   onMount(async () => {
     categoryList = await categoryService.getCategories();
   });
 
+    url = window.location.href
+    let parsedURL = url.substring(33)
+
   async function addPlacemark() {
     if (name && latitude && longitude) {
-      const category = categoryList.find(category => category.title && category._id);
+      const category = categoryList.find(category => category._id);
       const placemark = {
         name: name,
         latitude: latitude,
         longitude: longitude,
         category: category._id,
       };
-    const success = await placemarkService.addPlacemark(placemark)
+    const success = await placemarkService.addPlacemark(placemark, parsedURL)
         if (success) {
           console.log("placemark added");
         }
