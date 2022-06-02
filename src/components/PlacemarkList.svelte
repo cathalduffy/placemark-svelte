@@ -1,6 +1,8 @@
 <script>
   import {getContext, onMount} from 'svelte'
   import {category} from "../stores";
+  import 'leaflet/dist/leaflet.css';
+  import {LeafletMap} from '../services/leaflet-map';
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkList = [];
@@ -9,10 +11,8 @@
 
   onMount(async (request) => {
     url = window.location.href
-    console.log(url)
     let parsedURL = url.substring(33)
     placemarkList = await placemarkService.getPlacemarks(parsedURL);
-    console.log(placemarkList)
   });
 </script>
 
@@ -43,11 +43,13 @@
           <span class="icon is-small">
            <i class="fas fa-folder-open"></i>
           </span>
-    </a>
+         </a>
         </td>
       </tr>
     {/each}
   </tbody>
 </table>
+
+
 
 
