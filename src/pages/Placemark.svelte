@@ -34,8 +34,13 @@
   </div>
 </div>
 
-<p>{$placemark.id}</p>
-<p>{$placemark.name}</p>
+<div class="column box has-text-centered">
+    <h1 class="title is-4">{$placemark.name}</h1>
+    
+  </div>
+
+<h2>{$placemark.id}</h2>
+<h1>{$placemark.name}</h1>
 <p>{$placemark.latitude}</p>
 <p>{$placemark.longitude}</p>
 <p>{$placemark.amenitiesRating}</p>
