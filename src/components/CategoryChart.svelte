@@ -10,11 +10,11 @@
   let url = ``;
 
   let placemarkList = [];
-  let data = {
-    labels: ["Tramore", "Dunmore"],
+  let placemarkData = {
+    labels: [],
     datasets: [
       {
-        values: [0,0]
+        values: []
       }
     ]
   };
@@ -33,14 +33,11 @@
     console.log(url)
     let parsedURL = url.substring(33)
     placemarkList = await placemarkService.getPlacemarks(parsedURL);
-    placemarkList.forEach(placemark => {
-      if (placemark.name == "Tramore") {
-        data.datasets[0].values[0] += placemark.amenitiesRating
-      } else if (placemark.name == "Dunmore") {
-        data.datasets[0].values[1] += placemark.amenitiesRating
-      }
+    placemarkList.forEach((placemark,i) => {
+      placemarkData.labels.push(`${placemark.name}`)
+      placemarkData.datasets[0].values.push(0);
+      placemarkData.datasets[0].values[i] += placemark.amenitiesRating
     });
-
     let categories = await categoryService.getCategories();
     totalByCategory.labels = [];
     categories.forEach(category => {
@@ -52,7 +49,6 @@
         if (placemark.categoryid == category._id) {
           totalByCategory.datasets[0].values[i] += placemark.amenitiesRating;
         }
-        console.log(placemark.categoryid._id)
       });
     });
   });
@@ -63,7 +59,7 @@
 <div class="columns">
   <div class="column box has-text-centered">
     <h1 class="title is-4">Placemark Ratings</h1>
-    <Chart data={data} type="bar"/>
+    <Chart data={placemarkData} type="bar"/>
   </div>
     <div class="column has-text-centered">
     <h1 class="title is-4">By Category</h1>
