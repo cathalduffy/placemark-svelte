@@ -6,19 +6,15 @@
   import 'leaflet/dist/leaflet.css';
   import {LeafletMap} from '../services/leaflet-map';
 
-
   const placemarkService = getContext("PlacemarkService");
   let placemarkById = [];
-
     const mapConfig = {
     location: {lat: 52.160858, lng: -7.152420},
     zoom: 7,
     minZoom: 1,
   };
   let map = null;
-
   let url = ``;
-  let name = $placemark.name;
 
   onMount(async (request) => {
     map = new LeafletMap("placemark-map", mapConfig);
@@ -34,5 +30,5 @@
   });
 </script>
 
-<div class="box" id="placemark-map" style="height:500px">
+<div class="box" id="placemark-map" style="height:400px; width:600px">
 </div>

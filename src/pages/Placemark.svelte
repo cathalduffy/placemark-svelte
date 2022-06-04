@@ -9,16 +9,13 @@
   import {LeafletMap} from '../services/leaflet-map';
   import PlacemarkMap from "../components/PlacemarkMap.svelte";
   import PlacemarkChart from "../components/PlacemarkChart.svelte";
-  import PlacemarkImage from "../components/PlacemarkImage.svelte";
-
-
 
   const placemarkService = getContext("PlacemarkService");
   let placemarkById = [];
 
   let url = ``;
-  let name = $placemark.name;
-
+  let weather = '';
+  
   onMount(async (request) => {
     url = window.location.href
     console.log(url)
@@ -37,32 +34,40 @@
 </div>
 
 <div class="column box has-text-centered">
-    <h1 class="title is-4">{$placemark.name}</h1>
-    
-  </div>
+<h1 class="title is-4"><h1>{$placemark.name} Current Weather Readings</h1>
+</div>
 
-<h2>{$placemark.id}</h2>
-<h1>{$placemark.name}</h1>
-<p>{$placemark.latitude}</p>
-<p>{$placemark.longitude}</p>
-<p>{$placemark.amenitiesRating}</p>
-<p>{$placemark.foodRating}</p>
-<p>{$placemark.cleanlinessRating}</p>
-
+<table class="table is-fullwidth">
+  <thead>
+    <th>Temperature</th>
+    <th>Clouds</th>
+    <th>Wind Speed</th>
+    <th>Wind Direction</th>
+    <th>Visibility</th>
+    <th>Humidity</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>
+          {$placemark.temperature}
+        </td>
+        <td>
+          {$placemark.clouds}
+        </td>
+        <td>
+          {$placemark.windSpeed}
+        </td>
+        <td>
+          {$placemark.windDirection}
+        </td>
+        <td>
+          {$placemark.visibility}
+        </td>
+        <td>
+          {$placemark.humidity}
+        </td>
+      </tr>
+  </tbody>
+  </table>
+<br><br>
 <PlacemarkMap/>
-<PlacemarkChart/>
-<PlacemarkImage/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

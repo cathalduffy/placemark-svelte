@@ -114,6 +114,14 @@ export class PlacemarkService {
       amenitiesRating: response.data.amenitiesRating,
       foodRating: response.data.foodRating,
       cleanlinessRating: response.data.cleanlinessRating,
+      windSpeed: response.data.windSpeed,
+      // @ts-ignore
+      temperature: response.data.temperature,
+      feelsLike: response.data.feelsLike,
+      clouds: response.data.clouds,
+      windDirection: response.data.windDirection,
+      visibility: response.data.visibility,
+      humidity: response.data.humidity,
     });
     return response.data;
     } catch (error) {

@@ -19,4 +19,5 @@ export const placemark = writable({
   amenitiesRating: "",
   foodRating: "",
   cleanlinessRating: "",
+  windSpeed: "",
 });

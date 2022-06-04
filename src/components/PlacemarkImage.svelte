@@ -1,3 +1,4 @@
+<!---- https://svelte.dev/repl/b17c13d4f1bb40799ccf09e0841ddd90?version=3.48.0 --->
 
 <script>
 	let  avatar, fileinput;
@@ -41,7 +42,7 @@
 	}
 	.avatar{
 		display:flex;
-		height:700px;
-		width:700px;
+		height:400px;
+		width:400px;
 	}
 </style>

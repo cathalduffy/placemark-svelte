@@ -18,7 +18,6 @@
 
   let url = ``;
 
-
   onMount(async () => {
     categoryList = await categoryService.getCategories();
   });
