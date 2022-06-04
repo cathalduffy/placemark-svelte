@@ -6,7 +6,6 @@
   const placemarkService = getContext("PlacemarkService");
   const categoryService = getContext("CategoryService");
 
-
   let url = ``;
 
   let placemarkList = [];
@@ -52,13 +51,11 @@
       });
     });
   });
-
-
 </script>
 
 <div class="columns">
   <div class="column box has-text-centered">
-    <h1 class="title is-4">Placemark Ratings</h1>
+    <h1 class="title is-4">Amenity Ratings</h1>
     <Chart data={placemarkData} type="bar"/>
   </div>
     <div class="column has-text-centered">

@@ -9,6 +9,8 @@
   import {LeafletMap} from '../services/leaflet-map';
   import PlacemarkMap from "../components/PlacemarkMap.svelte";
   import PlacemarkChart from "../components/PlacemarkChart.svelte";
+  import PlacemarkImage from "../components/PlacemarkImage.svelte";
+
 
 
   const placemarkService = getContext("PlacemarkService");
@@ -49,6 +51,8 @@
 
 <PlacemarkMap/>
 <PlacemarkChart/>
+<PlacemarkImage/>
+
 
 
 
