@@ -12,8 +12,8 @@
   import {CategoryService} from "./services/category-service";
   import {setContext} from "svelte"; //context object to be retrieved from any component in our application
 
-  setContext("PlacemarkService", new PlacemarkService("https://serene-shore-88421.herokuapp.com/")); //import instance of class on other server
-  setContext("CategoryService", new CategoryService("https://serene-shore-88421.herokuapp.com/"));
+  setContext("PlacemarkService", new PlacemarkService("https://serene-shore-88421.herokuapp.com")); //import instance of class on other server
+  setContext("CategoryService", new CategoryService("https://serene-shore-88421.herokuapp.com"));
 
   let routes = {
     "/": Main,
