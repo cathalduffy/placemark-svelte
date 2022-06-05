@@ -23,10 +23,8 @@
         <div class="field">
           <label for="title" class="label">Category Title</label>
           <input bind:value={title} id="title" class="input" type="text" placeholder="Enter Category Title" name="title">
+          <button class="button is-link">Create Category</button>
         </div>
-    <div class="field is-grouped">
-      <button class="button is-link">Create Category</button>
-    </div>
 </form>
 {#if errorMessage}
   <div class="section">

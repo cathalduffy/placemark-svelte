@@ -5,13 +5,13 @@
 
     let categoryList = [];
     let name = "";
-    let latitude = 52.160858;
-    let longitude = -7.152420;
+    let latitude = 53.350140;
+    let longitude = -6.266155;
     let cleanlinessRating = "";
     let amenitiesRating = "";
     let foodRating = "";
     let errorMessage = "";
-    let message = "Enter All fields to add a spot";
+    let message = "Please enter all fields";
 
   const placemarkService = getContext("PlacemarkService");
   const categoryService = getContext("CategoryService");
@@ -42,17 +42,12 @@
           console.log("placemark added");
         }
       }
- /*          await push("/category/*");    //display the placemark list upon addition of new placemark
-      } else {
-            errorMessage = "Addition of Placemark not completed - some error occurred";
-        }
-    } */
   }
 </script>
 
 <form on:submit|preventDefault={addPlacemark}>
   <div class="field">
-    <label class="label" for="name">Enter Placemark Name</label> 
+    <label class="label" for="name">Please Enter Placemark Details</label> 
     <input bind:value={name} class="input" id="name" name="name" placeholder="Placemark Name" type="text">
     <input bind:value={amenitiesRating} class="input" id="amenitiesRating" name="amenitiesRating" placeholder="Please Rate the Amenities" type="number">
     <input bind:value={foodRating} class="input" id="foodRating" name="foodRating" placeholder="Please Rate the Dining Facilities" type="number">

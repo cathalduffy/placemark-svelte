@@ -8,7 +8,7 @@
   let placemarkList = [];
     
     const mapConfig = {
-    location: {lat: 52.160858, lng: -7.152420},
+    location: {lat: 53.350140, lng: -6.266155},
     zoom: 7,
     minZoom: 1,
   };
