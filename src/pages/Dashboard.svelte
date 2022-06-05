@@ -17,7 +17,7 @@
 
 <div class="columns">
   <div class="column has-text-centered">
-    <img alt="Homer" src={navigation} width="300"/>
+    <img alt="Homer" src={navigation} width="350"/>
   </div>
   <div class="column box has-text-centered">
     <h1 class="title is-4">Add A Category</h1>
