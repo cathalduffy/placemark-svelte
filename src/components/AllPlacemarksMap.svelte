@@ -20,9 +20,7 @@
     map.showZoomControl();
     map.showLayerControl();
 
-    url = window.location.href
-    let parsedURL = url.substring(33)
-    placemarkList = await placemarkService.getPlacemarks(parsedURL);
+    placemarkList = await placemarkService.getAllPlacemarks();
       placemarkList.forEach(placemark => {
       map.addMarker({lat: placemark.latitude, lng: placemark.longitude});
     });

@@ -5,6 +5,7 @@
   import MainNavigator from "../components/MainNavigator.svelte";
   import CategoryMap from "../components/CategoryMap.svelte";
   import PlacemarkForm from "../components/PlacemarkForm.svelte";
+  import CategoryChart from "../components/CategoryChart.svelte";
 
   let categoryMap = null;
 
@@ -37,6 +38,8 @@
    <PlacemarkForm on:message={placemarkAdded}/>
   </div>
 </div>
+
+<CategoryChart/>
 
 
 
