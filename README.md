@@ -17,5 +17,6 @@ The Placemark app is built by using a Nodejs backend, specifically Hapi.js. The 
 Svelte framework.
 
 ## Run the application
-Clone repository from github
-$npm install
+**Pull down repo from Github** Clone repository from github
+
+**Run this command** $npm install
